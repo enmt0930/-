@@ -70,14 +70,15 @@
               <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_1">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="unko" />
+                  <Variable x:TypeArguments="x:String" Name="pass" />
                 </Sequence.Variables>
-                <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type into username" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="False" Text="aaaaa">
+                <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type into username" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="False" Text="316-0134988">
                   <ui:TypeInto.Target>
                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="6413f48c9ea5fecf848a574d2b2b7353" Selector="&lt;webctrl name='user_id' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
                   </ui:TypeInto.Target>
                 </ui:TypeInto>
-                <ui:GetPassword DisplayName="Get password" sap2010:WorkflowViewState.IdRef="GetPassword_1" ProtectedPassword="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQgVEv+wQKUGd/NPjO+ob+QAAAAACAAAAAAAQZgAAAAEAACAAAAA36pO5Y5bPQkFd2KwK2xGyUx+utYcwzrvFQRt9dF5pLwAAAAAOgAAAAAIAACAAAACrLmJTeR+win1CvJb3c/eWo0SAiyHrb24saE2UN0V0thAAAAAxuzbkLde7FF52U5LplgSjQAAAAAG8aPd0QWvBVTUptBqG0+zjGWpX9Dk6Fo+mhZP6VgzOBAoO6VchbqcJp1Jgqsyuo5pMbFD4wsMgarQp2J9oHfQ=" Result="[unko]" />
-                <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type into password" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="False" Text="******">
+                <ui:GetPassword DisplayName="Get password" sap2010:WorkflowViewState.IdRef="GetPassword_1" ProtectedPassword="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQgVEv+wQKUGd/NPjO+ob+QAAAAACAAAAAAAQZgAAAAEAACAAAACRqyHalWVk9m8ErTHxEhAEwqOP/otXfdUrhjdCyMNeXQAAAAAOgAAAAAIAACAAAACI+Pqy+YSzAfgQZaqtwTVKu+CS6JD+e7sT8/NL5wGlhhAAAAATbmVvR4AouwD1eLEVzZVKQAAAALwuGhpo3S6egMYP+Mt4OIlJNQzdj8EXDWQaYhlRMJE/Ux7Zt0ffqbkZujfri2gkJP8wutQNIkNle1Kk9W+ql9Y=" Result="[pass]" />
+                <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type into password" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="False" Text="[pass]">
                   <ui:TypeInto.Target>
                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="2c225d0a108da61c63e3c7188433e8e8" Selector="&lt;webctrl name='user_password' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
                   </ui:TypeInto.Target>
@@ -153,6 +154,28 @@
                     </ui:BrowserScope.Body>
                   </ui:BrowserScope>
                 </Sequence>
+                <FlowStep.Next>
+                  <FlowStep x:Name="__ReferenceID3" sap2010:WorkflowViewState.IdRef="FlowStep_8">
+                    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel application scope" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" WorkbookPath="C:\Users\user\Desktop\投資信託自動化テスト.xlsx">
+                      <ui:ExcelApplicationScope.Body>
+                        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                            <ui:ExcelReadRange DataTable="{x:Null}" AddHeaders="True" DisplayName="Read Range" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Sheet1">
+                              <ui:ExcelReadRange.Range>
+                                <InArgument x:TypeArguments="x:String">
+                                  <Literal x:TypeArguments="x:String" Value="" />
+                                </InArgument>
+                              </ui:ExcelReadRange.Range>
+                            </ui:ExcelReadRange>
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:ExcelApplicationScope.Body>
+                    </ui:ExcelApplicationScope>
+                  </FlowStep>
+                </FlowStep.Next>
               </FlowStep>
             </FlowStep.Next>
           </FlowStep>
@@ -162,7 +185,8 @@
     <x:Reference>__ReferenceID0</x:Reference>
     <x:Reference>__ReferenceID1</x:Reference>
     <x:Reference>__ReferenceID2</x:Reference>
-    <sads:DebugSymbol.Symbol>d1RDOlxVc2Vyc1x1c2VyXERlc2t0b3Bc5oqV6LOH5L+h6KiX6Ieq5YuV5YyW44OG44K544OIXHVua29c5oqV6LOH5L+h6KiX6Ieq5YuV5YyWLnhhbWwjPQOmAQ8CAQFACWcaAgEZag14GAIBF3sRmwEcAgECQL0BQN4BAgEmRg9kGgIBGnagAXaTAgIBGH1GfWMCAQN/E5oBJQIBBEoRTh8CASNPEU/HAwIBIFARVB8CAR1VEWMcAgEbf6YCf8wCAgEWhQEZlwEkAgEFTKQBTNIBAgElSqQCSqsCAgEkT7wDT8QDAgEhUqQBUtgBAgEfUKQCUKwCAgEeYaQBYdQBAgEchgEbigEsAgEOiwEblgE2AgEGhgHPAoYB1AICARWIAa4BiAH1AgIBFIYBkQGGAZYBAgEThgFXhgFdAgEShgFohgF8AgEQhgHHAYYBiwICAQ+LAbYBiwHdAQIBDZEBIZMBLAIBB5IBI5IB3gECAQiSAdcBkgHbAQIBDJIBVJIBaAIBCpIBwQGSAckBAgEJ</sads:DebugSymbol.Symbol>
+    <x:Reference>__ReferenceID3</x:Reference>
+    <sads:DebugSymbol.Symbol>d1RDOlxVc2Vyc1x1c2VyXERlc2t0b3Bc5oqV6LOH5L+h6KiX6Ieq5YuV5YyW44OG44K544OIXHVua29c5oqV6LOH5L+h6KiX6Ieq5YuV5YyWLnhhbWwpPQO+AQ8CAQFACWgaAgEfaw15GAIBHXwRnAEcAgEInwEVsAEwAgECQL0BQN4BAgEtRg9lGgIBIHegAXeTAgIBHn5GfmMCAQmAARObASUCAQqfAbABnwHXAQIBB6UBG60BJgIBA0sRTx8CASpQEVDHAwIBJ1ERVR8CASNWEWQcAgEhgAGmAoABzAICARyGARmYASQCAQumAR2sATECAQRNpAFN0gECASxLpAJLsQICAStQvANQxAMCAShTpAFT2AECASZRpAJRrAICASRipAFi1AECASKHARuLASwCARSMARuXATYCAQypASOpAVICAQamAa0BpgG1AQIBBYcBzwKHAdQCAgEbiQGuAYkB9QICARqHAZEBhwGWAQIBGYcBV4cBXQIBGIcBaIcBfAIBFocBxwGHAYsCAgEVjAG2AYwB3QECAROSASGUASwCAQ2TASOTAd4BAgEOkwHXAZMB2wECARKTAVSTAWgCARCTAcEBkwHJAQIBDw==</sads:DebugSymbol.Symbol>
   </Flowchart>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -216,20 +240,44 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ExcelReadRange_1" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="Sequence_9" sap:VirtualizedContainerService.HintSize="336,183">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ExcelApplicationScope_2" sap:VirtualizedContainerService.HintSize="200,51">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_8">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">200,364.5</av:Point>
+            <av:Size x:Key="ShapeSize">200,51</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="FlowStep_7">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">200,264.5</av:Point>
+            <av:Point x:Key="ShapeLocation">200,254.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">300,305.5 300,364.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="FlowStep_5">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">200,184.5</av:Point>
+            <av:Point x:Key="ShapeLocation">200,174.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">300,235.5 300,264.5</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">300,225.5 300,254.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
@@ -238,21 +286,22 @@
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">200,104.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">300,155.5 300,184.5</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">300,155.5 300,174.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Flowchart_1" sap:VirtualizedContainerService.HintSize="614,636">
+      <sap2010:ViewStateData Id="Flowchart_1" sap:VirtualizedContainerService.HintSize="614,644">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
             <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
             <av:Size x:Key="ShapeSize">60,75</av:Size>
             <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,104.5</av:PointCollection>
+            <x:Double x:Key="Height">608</x:Double>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Main_1" sap:VirtualizedContainerService.HintSize="654,716" />
+      <sap2010:ViewStateData Id="Main_1" sap:VirtualizedContainerService.HintSize="654,724" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>
