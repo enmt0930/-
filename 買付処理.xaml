@@ -72,7 +72,6 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="買付処理" sap2010:WorkflowViewState.IdRef="Flowchart_1">
@@ -98,9 +97,9 @@
                     <InArgument x:TypeArguments="x:String">[Portfolio.Rows(index-1).Item(index+7).ToString]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:CommentOut DisplayName="Comment Out">
+                <ui:CommentOut DisplayName="Comment Out" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                   <ui:CommentOut.Body>
-                    <Sequence DisplayName="Ignored Activities">
+                    <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_2">
                       <If Condition="[前日比 &gt;= &quot;+3.0&quot;]" sap2010:WorkflowViewState.IdRef="If_1">
                         <If.Then>
                           <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="False" Text="200">
@@ -117,17 +116,14 @@
                           </ui:TypeInto>
                         </If.Else>
                       </If>
-                      <sap2010:WorkflowViewState.IdRef>Sequence_2</sap2010:WorkflowViewState.IdRef>
                     </Sequence>
                   </ui:CommentOut.Body>
-                  <sap2010:WorkflowViewState.IdRef>CommentOut_1</sap2010:WorkflowViewState.IdRef>
                 </ui:CommentOut>
                 <ui:GetPassword DisplayName="Get Password" sap2010:WorkflowViewState.IdRef="GetPassword_1" ProtectedPassword="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQgVEv+wQKUGd/NPjO+ob+QAAAAACAAAAAAAQZgAAAAEAACAAAADj7+rLrbp3jYr6QIdR9xcwz0Kk+Bv3Dt0ninCnCrBb5QAAAAAOgAAAAAIAACAAAAB02+zQV+ctEDgFQF5TjGnB4NCM5Zkg0eXPnw6Rje5LHhAAAABjUDq0wUdLBfBWo+vuM7xcQAAAAEKEcYUHw0Q9jwKVrghZKt0ZeiG3A9XdhedZppciKhqBPoEvdSYDBJ5LYl5O9qmS00c0/2EvgQXKnhZwQxR9TmM=" Result="[取引pass]" />
-                <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT'" EmptyField="False" SendWindowMessages="False" SimulateType="False" Text="100">
+                <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_5" SendWindowMessages="False" SimulateType="False" Text="100">
                   <ui:TypeInto.Target>
                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="ad020576c3054e5d6171a5a72f76c0cc" Selector="&lt;webctrl name='payment' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
                   </ui:TypeInto.Target>
-                  <sap2010:WorkflowViewState.IdRef>TypeInto_5</sap2010:WorkflowViewState.IdRef>
                 </ui:TypeInto>
                 <ui:TypeInto DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DelayBefore="1000" DisplayName="Type Into 'INPUT  pwd3'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="False" Text="[取引pass]">
                   <ui:TypeInto.Target>
@@ -171,7 +167,7 @@
       </FlowStep>
     </Flowchart.StartNode>
     <x:Reference>__ReferenceID0</x:Reference>
-    <sads:DebugSymbol.Symbol>d0tDOlxVc2Vyc1x1c2VyXERlc2t0b3Bc5oqV6LOH5L+h6KiX6Ieq5YuV5YyW44OG44K544OIXHVua29c6LK35LuY5Yem55CGLnhhbWwYTgOvAQ8CAQFVCaoBGwIBAlXNAVXYAQIBHVViVW0CARtbD6cBGgIBA1wRXIoBAgEYXRFkGgIBFGURfCECARN9EX3JAwIBEH4RgwEfAgENhAERiAEfAgEIiQERlwEcAgEGmAERpgEcAgEEXIABXIcBAgEZYjxibAIBF189X0ICARV9vAN9xgMCARGAAaQBgAHSAQIBD372AX77AQIBDoYBpAGGAc0BAgEMhAGlAoQBrwICAQqEAYMBhAGJAQIBCZUBpAGVAdQBAgEHpAGkAaQB+wECAQU=</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d0tDOlxVc2Vyc1x1c2VyXERlc2t0b3Bc5oqV6LOH5L+h6KiX6Ieq5YuV5YyW44OG44K544OIXHVua29c6LK35LuY5Yem55CGLnhhbWwYTQOrAQ8CAQFUCaYBGwIBAlTNAVTYAQIBHVRiVG0CARtaD6MBGgIBA1sRW4oBAgEYXBFjGgIBFGQReSECARN6EXrJAwIBEHsRfx8CAQ2AARGEAR8CAQiFARGTARwCAQaUARGiARwCAQRbgAFbhwECARlhPGFsAgEXXj1eQgIBFXq8A3rGAwIBEX2kAX3SAQIBD3ujAnuoAgIBDoIBpAGCAc0BAgEMgAGlAoABrwICAQqAAYMBgAGJAQIBCZEBpAGRAdQBAgEHoAGkAaAB+wECAQU=</sads:DebugSymbol.Symbol>
   </Flowchart>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
