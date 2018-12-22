@@ -120,7 +120,7 @@
                   </ui:CommentOut.Body>
                 </ui:CommentOut>
                 <ui:GetPassword DisplayName="Get Password" sap2010:WorkflowViewState.IdRef="GetPassword_1" ProtectedPassword="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQgVEv+wQKUGd/NPjO+ob+QAAAAACAAAAAAAQZgAAAAEAACAAAADj7+rLrbp3jYr6QIdR9xcwz0Kk+Bv3Dt0ninCnCrBb5QAAAAAOgAAAAAIAACAAAAB02+zQV+ctEDgFQF5TjGnB4NCM5Zkg0eXPnw6Rje5LHhAAAABjUDq0wUdLBfBWo+vuM7xcQAAAAEKEcYUHw0Q9jwKVrghZKt0ZeiG3A9XdhedZppciKhqBPoEvdSYDBJ5LYl5O9qmS00c0/2EvgQXKnhZwQxR9TmM=" Result="[取引pass]" />
-                <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_5" SendWindowMessages="False" SimulateType="False" Text="100">
+                <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_5" SendWindowMessages="False" SimulateType="False" Text="200">
                   <ui:TypeInto.Target>
                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="ad020576c3054e5d6171a5a72f76c0cc" Selector="&lt;webctrl name='payment' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
                   </ui:TypeInto.Target>
