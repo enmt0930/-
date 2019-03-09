@@ -16,6 +16,7 @@
     <x:Property Name="URL" Type="InArgument(x:String)" />
     <x:Property Name="Portfolio" Type="InArgument(sd:DataTable)" />
     <x:Property Name="index" Type="InArgument(x:Int32)" />
+    <x:Property Name="損益率" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -97,34 +98,23 @@
                     <InArgument x:TypeArguments="x:String">[Portfolio.Rows(index-1).Item(index+7).ToString]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:CommentOut DisplayName="Comment Out" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-                  <ui:CommentOut.Body>
-                    <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_2">
-                      <If Condition="[前日比 &gt;= &quot;+3.0&quot;]" sap2010:WorkflowViewState.IdRef="If_1">
-                        <If.Then>
-                          <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="False" Text="200">
-                            <ui:TypeInto.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c4e13eb8de02fc553f4a7864455028fe" Selector="&lt;webctrl name='payment' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
-                            </ui:TypeInto.Target>
-                          </ui:TypeInto>
-                        </If.Then>
-                        <If.Else>
-                          <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_4" SendWindowMessages="False" SimulateType="False" Text="100">
-                            <ui:TypeInto.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c4e13eb8de02fc553f4a7864455028fe" Selector="&lt;webctrl name='payment' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
-                            </ui:TypeInto.Target>
-                          </ui:TypeInto>
-                        </If.Else>
-                      </If>
-                    </Sequence>
-                  </ui:CommentOut.Body>
-                </ui:CommentOut>
+                <If Condition="[損益率 &gt;= &quot;+3.0&quot;]" sap2010:WorkflowViewState.IdRef="If_1">
+                  <If.Then>
+                    <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="False" Text="100">
+                      <ui:TypeInto.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c4e13eb8de02fc553f4a7864455028fe" Selector="&lt;webctrl name='payment' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
+                      </ui:TypeInto.Target>
+                    </ui:TypeInto>
+                  </If.Then>
+                  <If.Else>
+                    <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_4" SendWindowMessages="False" SimulateType="False" Text="200">
+                      <ui:TypeInto.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c4e13eb8de02fc553f4a7864455028fe" Selector="&lt;webctrl name='payment' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
+                      </ui:TypeInto.Target>
+                    </ui:TypeInto>
+                  </If.Else>
+                </If>
                 <ui:GetPassword DisplayName="Get Password" sap2010:WorkflowViewState.IdRef="GetPassword_1" ProtectedPassword="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAQgVEv+wQKUGd/NPjO+ob+QAAAAACAAAAAAAQZgAAAAEAACAAAADj7+rLrbp3jYr6QIdR9xcwz0Kk+Bv3Dt0ninCnCrBb5QAAAAAOgAAAAAIAACAAAAB02+zQV+ctEDgFQF5TjGnB4NCM5Zkg0eXPnw6Rje5LHhAAAABjUDq0wUdLBfBWo+vuM7xcQAAAAEKEcYUHw0Q9jwKVrghZKt0ZeiG3A9XdhedZppciKhqBPoEvdSYDBJ5LYl5O9qmS00c0/2EvgQXKnhZwQxR9TmM=" Result="[取引pass]" />
-                <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_5" SendWindowMessages="False" SimulateType="False" Text="200">
-                  <ui:TypeInto.Target>
-                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="ad020576c3054e5d6171a5a72f76c0cc" Selector="&lt;webctrl name='payment' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
-                  </ui:TypeInto.Target>
-                </ui:TypeInto>
                 <ui:TypeInto DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DelayBefore="1000" DisplayName="Type Into 'INPUT  pwd3'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="False" Text="[取引pass]">
                   <ui:TypeInto.Target>
                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="29aa3e6b53a72325a8f063e26aea6ef6" Selector="&lt;webctrl id='pwd3' tag='INPUT' /&gt;" WaitForReady="INTERACTIVE" />
@@ -167,11 +157,11 @@
       </FlowStep>
     </Flowchart.StartNode>
     <x:Reference>__ReferenceID0</x:Reference>
-    <sads:DebugSymbol.Symbol>d0tDOlxVc2Vyc1x1c2VyXERlc2t0b3Bc5oqV6LOH5L+h6KiX6Ieq5YuV5YyW44OG44K544OIXHVua29c6LK35LuY5Yem55CGLnhhbWwYTQOrAQ8CAQFUCaYBGwIBAlTNAVTYAQIBHVRiVG0CARtaD6MBGgIBA1sRW4oBAgEYXBFjGgIBFGQReSECARN6EXrJAwIBEHsRfx8CAQ2AARGEAR8CAQiFARGTARwCAQaUARGiARwCAQRbgAFbhwECARlhPGFsAgEXXj1eQgIBFXq8A3rGAwIBEX2kAX3SAQIBD3ujAnuoAgIBDoIBpAGCAc0BAgEMgAGlAoABrwICAQqAAYMBgAGJAQIBCZEBpAGRAdQBAgEHoAGkAaAB+wECAQU=</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d0tDOlxVc2Vyc1x1c2VyXERlc2t0b3Bc5oqV6LOH5L+h6KiX6Ieq5YuV5YyW44OG44K544OIXHVua29c6LK35LuY5Yem55CGLnhhbWwcTgOhAQ8CAQFVCZwBGwIBAlXNAVXYAQIBIlViVW0CASBbD5kBGgIBA1wRXIoBAgEdXRFkGgIBGWURdBYCARB1EXXJAwIBDXYReh8CAQh7EYkBHAIBBooBEZgBHAIBBFyAAVyHAQIBHmI8YmwCARxfPV9CAgEaZR9lPQIBEWcVayMCARZuFXIjAgETdbwDdcYDAgEOeKQBeM0BAgEMdqUCdq8CAgEKdoMBdokBAgEJhwGkAYcB1AECAQeWAaQBlgH7AQIBBWmoAWnWAQIBGGenAmesAgIBF3CoAXDWAQIBFW6nAm6sAgIBFA==</sads:DebugSymbol.Symbol>
   </Flowchart>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
-      <sap2010:ViewStateData Id="NavigateTo_1" sap:VirtualizedContainerService.HintSize="691,59">
+      <sap2010:ViewStateData Id="NavigateTo_1" sap:VirtualizedContainerService.HintSize="653,59">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -179,31 +169,22 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="691,60" />
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="653,60" />
       <sap2010:ViewStateData Id="TypeInto_3" sap:VirtualizedContainerService.HintSize="314,134" />
       <sap2010:ViewStateData Id="TypeInto_4" sap:VirtualizedContainerService.HintSize="314,134" />
       <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="653,281" />
-      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="675,405">
+      <sap2010:ViewStateData Id="GetPassword_1" sap:VirtualizedContainerService.HintSize="653,22" />
+      <sap2010:ViewStateData Id="TypeInto_2" sap:VirtualizedContainerService.HintSize="653,134" />
+      <sap2010:ViewStateData Id="Click_1" sap:VirtualizedContainerService.HintSize="653,106" />
+      <sap2010:ViewStateData Id="Click_2" sap:VirtualizedContainerService.HintSize="653,106" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="675,1132">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="CommentOut_1" sap:VirtualizedContainerService.HintSize="691,483" />
-      <sap2010:ViewStateData Id="GetPassword_1" sap:VirtualizedContainerService.HintSize="691,22" />
-      <sap2010:ViewStateData Id="TypeInto_5" sap:VirtualizedContainerService.HintSize="691,134" />
-      <sap2010:ViewStateData Id="TypeInto_2" sap:VirtualizedContainerService.HintSize="691,134" />
-      <sap2010:ViewStateData Id="Click_1" sap:VirtualizedContainerService.HintSize="691,106" />
-      <sap2010:ViewStateData Id="Click_2" sap:VirtualizedContainerService.HintSize="691,106" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="713,1508">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="BrowserScope_1" sap:VirtualizedContainerService.HintSize="727,1616">
+      <sap2010:ViewStateData Id="BrowserScope_1" sap:VirtualizedContainerService.HintSize="689,1240">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
